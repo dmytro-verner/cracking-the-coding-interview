@@ -1,6 +1,5 @@
-package exercise_2_check_permutation;
+package chapter_1_arrays_and_strings.exercise_2_check_permutation;
 
-import chapter_1_arrays_and_strings.exercise_2_check_permutation.PermutationChecker;
 import org.junit.Before;
 import org.junit.Test;
 
