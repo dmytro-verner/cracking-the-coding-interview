@@ -1,4 +1,4 @@
-package chapter_1_arrays_and_strings.exercise_2_check_permutation;
+package chapter_1.exercise_2;
 
 import org.junit.Before;
 import org.junit.Test;

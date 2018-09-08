@@ -1,4 +1,4 @@
-package chapter_1_arrays_and_strings.exercise_5_one_away;
+package chapter_1.exercise_5;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;

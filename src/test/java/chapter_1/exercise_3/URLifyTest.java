@@ -1,4 +1,4 @@
-package chapter_1_arrays_and_strings.exercise_3_urlify;
+package chapter_1.exercise_3;
 
 import org.junit.Before;
 import org.junit.Test;

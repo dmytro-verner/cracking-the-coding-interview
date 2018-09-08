@@ -1,4 +1,4 @@
-package chapter_1_arrays_and_strings.exercise_4_palindrome_permutation;
+package chapter_1.exercise_4;
 
 import java.util.HashMap;
 import java.util.Map;

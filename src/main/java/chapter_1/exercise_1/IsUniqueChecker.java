@@ -1,4 +1,4 @@
-package chapter_1_arrays_and_strings.exercise_1_is_unique;
+package chapter_1.exercise_1;
 
 import java.util.BitSet;
 import java.util.HashSet;
