@@ -13,7 +13,7 @@ public class PermutationChecker {
     }
 
     //O(n) time complexity
-    //O(n) space complexity
+    //O(n) auxiliary space complexity
     //Unicode character set case
     private boolean isPermutationUnicodeSet(String str1, String str2) {
         if(str1 == null || str2 == null)
@@ -38,7 +38,7 @@ public class PermutationChecker {
     }
 
     //O(n) time complexity
-    //O(1) space complexity
+    //O(1) auxiliary space complexity
     //ASCII character set case
     private boolean isPermutationAsciiSet(String str1, String str2) {
         if(str1 == null || str2 == null)

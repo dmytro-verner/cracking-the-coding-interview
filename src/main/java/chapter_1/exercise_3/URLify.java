@@ -3,7 +3,7 @@ package chapter_1.exercise_3;
 public class URLify {
 
     //O(n) time complexity
-    //O(1) auxiliary space
+    //O(1) auxiliary space complexity
     private void toURLHelper(char[] str, int trueLength) {
         //count number of spaces
         int spacesCount = 0;

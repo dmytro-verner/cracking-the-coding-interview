@@ -11,7 +11,7 @@ public class IsUniqueChecker {
     }
 
     //O(n) time complexity
-    //O(n) space complexity
+    //O(n) auxiliary space complexity
     //handles Unicode character set encoding of the input parameter
     private boolean isUniqueUnicode(String str) {
         if (str == null)
@@ -26,7 +26,7 @@ public class IsUniqueChecker {
     }
 
     //O(1) time complexity
-    //O(1) space complexity
+    //O(1) auxiliary space complexity
     //uses limited ASCII character set of size 128, but using extended ASCII character set of size 256 is possible
     private boolean isUniqueAsciiLimited(String str) {
         if (str == null)
@@ -45,7 +45,7 @@ public class IsUniqueChecker {
     }
 
     //O(1) time complexity
-    //O(1) space complexity
+    //O(1) auxiliary space complexity
     //we assume str contains only a-z characters
     private boolean isUniqueIntFlag(String str) {
         if (str == null)
@@ -61,7 +61,7 @@ public class IsUniqueChecker {
     }
 
     //O(1) time complexity
-    //O(1) space complexity
+    //O(1) auxiliary space complexity
     //assume str contains only a-z characters
     private boolean isUniqueBitSetFlag(String str) {
         if (str == null)

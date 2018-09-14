@@ -7,7 +7,7 @@ public class OneAwayChecker {
     }
 
     //O(n) time complexity
-    //O(1) auxiliary complexity
+    //O(1) auxiliary space complexity
     private boolean isOneEditAwayFromEqualityV1(String str1, String str2) {
         if (str1 == null || str2 == null)
             throw new IllegalArgumentException();

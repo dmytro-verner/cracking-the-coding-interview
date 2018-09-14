@@ -7,7 +7,7 @@ public class PalindromePermutation {
 
     //assume English alphabet character set
     //O(n) time complexity
-    //O(1) auxiliary space
+    //O(1) auxiliary space complexity
     public boolean isPermutationPalindrome(String str) {
         if(str == null)
             throw new IllegalArgumentException();

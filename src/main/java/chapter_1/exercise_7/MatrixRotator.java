@@ -1,9 +1,9 @@
 package chapter_1.exercise_7;
 
-import java.util.Arrays;
-
 public class MatrixRotator {
 
+    //O(n^2) time complexity
+    //O(1) auxiliary space complexity
     public boolean rotate(int[][] matrix) {
         if (matrix == null)
             throw new IllegalArgumentException();
@@ -31,16 +31,5 @@ public class MatrixRotator {
             }
         }
         return true;
-    }
-
-    public static void main(String[] args) {
-        int[][] matrix = new int[][]{
-                {1, 2, 3, 4},
-                {5, 6, 7, 8},
-                {9, 10, 11, 12},
-                {13, 14, 15, 16}
-        };
-        new MatrixRotator().rotate(matrix);
-        System.out.println(Arrays.deepToString(matrix));
     }
 }

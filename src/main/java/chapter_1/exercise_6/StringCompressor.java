@@ -2,6 +2,8 @@ package chapter_1.exercise_6;
 
 public class StringCompressor {
 
+    //O(n) time complexity
+    //O(n) auxiliary space complexity
     public String compress(String str) {
         if (str == null)
             throw new IllegalArgumentException();
