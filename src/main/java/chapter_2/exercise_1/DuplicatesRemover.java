@@ -18,14 +18,13 @@ public class DuplicatesRemover {
 
         Set<Integer> set = new HashSet<>();
 
-        Node curr = head;
-        set.add(curr.data);
-        while (curr.next != null) {
-            if (set.contains(curr.next.data)) {
-                curr.next = curr.next.next;
+        set.add(head.data);
+        while (head.next != null) {
+            if (set.contains(head.next.data)) {
+                head.next = head.next.next;
             } else {
-                set.add(curr.next.data);
-                curr = curr.next;
+                set.add(head.next.data);
+                head = head.next;
             }
         }
     }
@@ -36,17 +35,16 @@ public class DuplicatesRemover {
         if (head == null)
             throw new IllegalArgumentException("Input node can't be null");
 
-        Node curr = head;
-        while (curr != null) {
-            Node runner = curr;
+        while (head != null) {
+            Node runner = head;
             while (runner.next != null) {
-                if (runner.next.data == curr.data) {
+                if (runner.next.data == head.data) {
                     runner.next = runner.next.next;
                 } else {
                     runner = runner.next;
                 }
             }
-            curr = curr.next;
+            head = head.next;
         }
     }
 }

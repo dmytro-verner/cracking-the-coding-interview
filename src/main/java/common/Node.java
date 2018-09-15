@@ -54,4 +54,18 @@ public class Node {
         }
         return count;
     }
+
+    public boolean isEqual(Node head) {
+        if (head == null)
+            throw new IllegalArgumentException("Input linked list can't be null");
+        Node curr1 = this;
+        Node curr2 = head;
+        while (curr1 != null && curr2 != null) {
+            if (curr1.data != curr2.data)
+                return false;
+            curr1 = curr1.next;
+            curr2 = curr2.next;
+        }
+        return curr1 == null && curr2 == null;
+    }
 }

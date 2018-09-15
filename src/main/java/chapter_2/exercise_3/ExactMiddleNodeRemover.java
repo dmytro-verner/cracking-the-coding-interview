@@ -14,18 +14,17 @@ public class ExactMiddleNodeRemover {
         if (size < 3)
             throw new IllegalArgumentException("Input linked list can't have size less than 3");
         int count = 1;
-        Node curr = head;
         Node prev = null;
-        while (curr.next != null) {
+        while (head.next != null) {
             if (count == size / 2) {
                 if (prev == null) { //the first node in linked list
-                    curr.next = curr.next.next;
+                    head.next = head.next.next;
                 } else {
-                    prev.next = curr.next;
+                    prev.next = head.next;
                 }
             }
-            prev = curr;
-            curr = curr.next;
+            prev = head;
+            head = head.next;
             count++;
         }
     }
