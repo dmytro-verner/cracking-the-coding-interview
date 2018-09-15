@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(JUnitParamsRunner.class)
 public class NodeCounterTest {
@@ -32,7 +33,7 @@ public class NodeCounterTest {
     @Parameters(method = "validKthElementToLast")
     public void validKthElementReturned(int[] testArr, int k, int expectedData) {
         Node linkedList = new Node(testArr);
-        Node r = nodeCounter.getKthToLast(linkedList, k);
+        Node r = nodeCounter.kthToLast(linkedList, k);
         assertEquals(expectedData, r.data);
     }
 
@@ -44,16 +45,18 @@ public class NodeCounterTest {
         };
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
+//            (expected = IllegalArgumentException.class)
     @Parameters(method = "invalidKthElementToLast")
-    public void IAEThrownOnInvalidKthElement(int[] testArr, int k) {
+    public void throwsIAEOnInvalidKthElement(int[] testArr, int k) {
         Node linkedList = new Node(testArr);
-        nodeCounter.getKthToLast(linkedList, k);
+        Node kthToLast = nodeCounter.kthToLast(linkedList, k);
+        assertNull(kthToLast);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void throwsIAEOnNullLinkedList() {
-        nodeCounter.getKthToLast(null, 1);
+        nodeCounter.kthToLast(null, 1);
     }
 
     @Test(expected = IllegalArgumentException.class)
