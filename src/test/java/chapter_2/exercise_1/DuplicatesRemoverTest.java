@@ -1,6 +1,5 @@
-package chapter_2;
+package chapter_2.exercise_1;
 
-import chapter_2.exercise_1.DuplicatesRemover;
 import common.Node;
 import org.junit.Before;
 import org.junit.Test;

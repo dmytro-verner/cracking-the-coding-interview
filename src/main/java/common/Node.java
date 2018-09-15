@@ -44,4 +44,14 @@ public class Node {
         else
             return false;
     }
+
+    public int size() {
+        int count = 1;
+        Node curr = this;
+        while (curr.next != null) {
+            count++;
+            curr = curr.next;
+        }
+        return count;
+    }
 }
