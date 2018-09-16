@@ -20,12 +20,13 @@ public class Node {
         }
     }
 
-    public void appendToTail(Node node) {
+    public Node appendToTail(Node node) {
         Node curr = this;
         while (curr.next != null) {
             curr = curr.next;
         }
         curr.next = node;
+        return this;
     }
 
     public boolean linkedListEqualTo(Node head) {
@@ -67,5 +68,17 @@ public class Node {
             curr2 = curr2.next;
         }
         return curr1 == null && curr2 == null;
+    }
+
+    public String linkedListToString() {
+        Node curr = this;
+        StringBuilder strBuilder = new StringBuilder();
+        while (curr != null) {
+            strBuilder.append(curr.data);
+            if (curr.next != null)
+                strBuilder.append(" -> ");
+            curr = curr.next;
+        }
+        return strBuilder.toString();
     }
 }
