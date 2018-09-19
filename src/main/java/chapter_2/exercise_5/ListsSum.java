@@ -5,9 +5,11 @@ import common.Node;
 public class ListsSum {
 
     public int sumBackwardOrder(Node node1, Node node2) {
-        return sumBackwardOrderIterativeV1(node1, node2);
+        return sumBackwardOrderIterativeV2(node1, node2);
     }
 
+    //O(n) time complexity
+    //O(1) auxiliary space complexity
     private int sumBackwardOrderIterativeV1(Node head1, Node head2) {
         int remainder = 0;
         int multiplier = 1;
@@ -50,5 +52,30 @@ public class ListsSum {
         }
 
         return accSum;
+    }
+
+    //O(n) time complexity
+    //O(1) auxiliary space complexity
+    private int sumBackwardOrderIterativeV2(Node head1, Node head2) {
+        return getInt(head1) + getInt(head2);
+    }
+
+    private int getInt(Node head) {
+        int multiplier = 1;
+        int acc = 0;
+        int remainder = 0;
+        while (head != null) {
+            int val = head.data + remainder;
+            acc += val * multiplier;
+            if (val >= 10) {
+                remainder = val / 10;
+            } else {
+                remainder = 0;
+            }
+
+            multiplier *= 10;
+            head = head.next;
+        }
+        return acc;
     }
 }
