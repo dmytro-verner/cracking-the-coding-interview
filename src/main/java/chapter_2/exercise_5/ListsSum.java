@@ -5,7 +5,7 @@ import common.Node;
 public class ListsSum {
 
     public int sumBackwardOrder(Node node1, Node node2) {
-        return sumBackwardOrderIterativeV2(node1, node2);
+        return sumBackwardOrderListsRecursively(node1, node2, 0, 1);
     }
 
     //O(n) time complexity
@@ -77,5 +77,24 @@ public class ListsSum {
             head = head.next;
         }
         return acc;
+    }
+
+    private int sumBackwardOrderListsRecursively(Node head1, Node head2, int carry, int multiplier) {
+        if (head1 == null && head2 == null && carry == 0)
+            return 0;
+        int value = carry;
+        if (head1 != null)
+            value += head1.data;
+        if (head2 != null)
+            value += head2.data;
+        int result = (value % 10) * multiplier;
+
+        if (head1 != null || head2 != null) {
+            result += sumBackwardOrderListsRecursively(head1 == null ? null : head1.next,
+                                                    head2 == null ? null : head2.next,
+                                                    value >= 10 ? 1 : 0,
+                                                    multiplier * 10);
+        }
+        return result;
     }
 }

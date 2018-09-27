@@ -46,7 +46,7 @@ public class Palindrome {
             throw new IllegalArgumentException("Input linked list can't be null");
 
         Node reversed = reverseAndClone(head);
-        return head.isEqual(reversed);
+        return head.equals(reversed);
     }
 
     private Node reverseAndClone(Node node) {

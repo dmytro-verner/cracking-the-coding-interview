@@ -5,6 +5,10 @@ public class Node {
     public Node next;
     public int data;
 
+    public Node() {
+        next = null;
+    }
+
     public Node(int d) {
         data = d;
     }
@@ -56,9 +60,11 @@ public class Node {
         return count;
     }
 
-    public boolean isEqual(Node head) {
-        if (head == null)
-            throw new IllegalArgumentException("Input linked list can't be null");
+    @Override
+    public boolean equals(Object node) {
+        if (!(node instanceof Node))
+            return false;
+        Node head = (Node) node;
         Node curr1 = this;
         Node curr2 = head;
         while (curr1 != null && curr2 != null) {
@@ -70,7 +76,8 @@ public class Node {
         return curr1 == null && curr2 == null;
     }
 
-    public String linkedListToString() {
+    @Override
+    public String toString() {
         Node curr = this;
         StringBuilder strBuilder = new StringBuilder();
         while (curr != null) {
