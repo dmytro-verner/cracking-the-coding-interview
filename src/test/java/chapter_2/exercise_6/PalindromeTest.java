@@ -20,7 +20,7 @@ public class PalindromeTest {
         palindrome = new Palindrome();
     }
 
-    private static Object[] palindrom(){
+    private static Object[] palindrome(){
         return new Object[] {
                 new Object[] { new int[] {1, 2, 3, 2, 1}},
                 new Object[] { new int[] {1, 2, 2, 1}},
@@ -30,10 +30,10 @@ public class PalindromeTest {
     }
 
     @Test
-    @Parameters(method = "palindrom")
+    @Parameters(method = "palindrome")
     public void palindromeIsIdentified(int[] testArr) {
         Node linkedList = new Node(testArr);
-        assertTrue(palindrome.isPalindrome(linkedList));
+        assertTrue(palindrome.isPalindromeOf(linkedList));
     }
 
     private static Object[] nonPalindrome(){
@@ -48,11 +48,11 @@ public class PalindromeTest {
     @Parameters(method = "nonPalindrome")
     public void nonPalindromeIdentified(int[] testArr) {
         Node linkedList = new Node(testArr);
-        assertFalse(palindrome.isPalindrome(linkedList));
+        assertFalse(palindrome.isPalindromeOf(linkedList));
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void throwsIAEOnNullLinkedList() {
-        palindrome.isPalindrome(null);
+        palindrome.isPalindromeOf(null);
     }
 }

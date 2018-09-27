@@ -7,8 +7,8 @@ import java.util.Deque;
 
 public class Palindrome {
 
-    public boolean isPalindrome(Node head) {
-        return isPalindromeV1(head);
+    public boolean isPalindromeOf(Node head) {
+        return isPalindromeRecursive(head);
     }
 
     //O(n) time complexity
@@ -58,6 +58,40 @@ public class Palindrome {
             node = node.next;
         }
         return head;
+    }
+
+    private boolean isPalindromeRecursive(Node head) {
+        if (head == null)
+            throw new IllegalArgumentException("Input list can't be null");
+        return isPalindromeHelper(head, head.size()).isPalindrome;
+    }
+
+    private Result isPalindromeHelper(Node node, int length) {
+        if (node == null || length <= 0) {
+            return new Result(node, true);
+        } else if (length == 1) {
+            return new Result(node.next, true);
+        }
+
+        Result result = isPalindromeHelper(node.next, length - 2);
+
+        if (!result.isPalindrome || result.node == null) {
+            return result;
+        }
+
+        result.isPalindrome = node.data == result.node.data;
+        result.node = result.node.next;
+        return result;
+    }
+
+    private class Result{
+        Node node;
+        boolean isPalindrome;
+
+        Result(Node node, boolean result) {
+            this.node = node;
+            this.isPalindrome = result;
+        }
     }
 }
 
