@@ -8,7 +8,7 @@ public class ListsSum {
         return sumBackwardOrderListsRecursively(node1, node2, 0, 1);
     }
 
-    //O(n) time complexity
+    //O(n+m) time complexity
     //O(1) auxiliary space complexity
     private int sumBackwardOrderIterativeV1(Node head1, Node head2) {
         int remainder = 0;
@@ -23,7 +23,7 @@ public class ListsSum {
             } else if (sum > 10) {
                 remainder = sum / 10;
                 sum = sum % 10;
-            } else { //sum == 10 case
+            } else { //backwardOrderSum == 10 case
                 sum = 0;
                 remainder = 1;
             }
@@ -54,29 +54,10 @@ public class ListsSum {
         return accSum;
     }
 
-    //O(n) time complexity
+    //O(n+m) time complexity
     //O(1) auxiliary space complexity
     private int sumBackwardOrderIterativeV2(Node head1, Node head2) {
-        return getInt(head1) + getInt(head2);
-    }
-
-    private int getInt(Node head) {
-        int multiplier = 1;
-        int acc = 0;
-        int remainder = 0;
-        while (head != null) {
-            int val = head.data + remainder;
-            acc += val * multiplier;
-            if (val >= 10) {
-                remainder = val / 10;
-            } else {
-                remainder = 0;
-            }
-
-            multiplier *= 10;
-            head = head.next;
-        }
-        return acc;
+        return head1.backwardOrderSum() + head2.backwardOrderSum();
     }
 
     private int sumBackwardOrderListsRecursively(Node head1, Node head2, int carry, int multiplier) {
@@ -96,5 +77,60 @@ public class ListsSum {
                                                     multiplier * 10);
         }
         return result;
+    }
+
+    //O(n+m) time complexity
+    public int sumForwardOrderLists(Node head1, Node head2) {
+        int length1 = head1.size();
+        int length2 = head2.size();
+        if (length1 > length2) {
+            head2 = padList(head2, length1 - length2);
+        } else if (length1 < length2) {
+            head1 = padList(head1, length2 - length1);
+        }
+
+        PartialSum partialSum = sumListsHelper(head1, head2);
+
+        if (partialSum.carry == 0) {
+            return partialSum.sum.forwardOrderSum();
+        } else {
+            return insertBefore(partialSum.sum, partialSum.carry).forwardOrderSum();
+        }
+    }
+
+    /**
+     * Accepts equal length singly linked lists
+     */
+    private PartialSum sumListsHelper(Node head1, Node head2) {
+        if (head1 == null || head2 == null) {
+            return new PartialSum();
+        }
+        PartialSum partialSum = sumListsHelper(head1.next, head2.next);
+
+        int value = partialSum.carry + head1.data + head2.data;
+
+        partialSum.sum = insertBefore(partialSum.sum, value % 10);
+        partialSum.carry = value / 10;
+        return partialSum;
+    }
+
+    private class PartialSum {
+        Node sum;
+        int carry;
+    }
+
+    private Node padList(Node head, int count) {
+        for (int i = 0; i < count; i++) {
+            head = insertBefore(head, 0);
+        }
+        return head;
+    }
+
+    private Node insertBefore(Node head, int data) {
+        Node node = new Node(data);
+        if (head == null)
+            return node;
+        node.next = head;
+        return node;
     }
 }

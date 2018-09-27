@@ -60,6 +60,44 @@ public class Node {
         return count;
     }
 
+    public int backwardOrderSum() {
+        int multiplier = 1;
+        int acc = 0;
+        int remainder = 0;
+        Node head = this;
+        while (head != null) {
+            int val = head.data + remainder;
+            acc += val * multiplier;
+            if (val >= 10) {
+                remainder = val / 10;
+            } else {
+                remainder = 0;
+            }
+
+            multiplier *= 10;
+            head = head.next;
+        }
+        return acc;
+    }
+
+    public int forwardOrderSum() {
+        int count = this.size();
+        int multiplier = 1;
+        while (--count > 0) {
+            multiplier *= 10;
+        }
+        int acc = 0;
+        Node head = this;
+        while (head != null) {
+            acc += head.data * multiplier;
+
+            multiplier /= 10;
+            head = head.next;
+        }
+        return acc;
+    }
+
+
     @Override
     public boolean equals(Object node) {
         if (!(node instanceof Node))
