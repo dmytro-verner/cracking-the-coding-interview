@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/dmytro-verner/cracking-the-coding-interview.svg?branch=master)](https://travis-ci.com/dmytro-verner/cracking-the-coding-interview)
 # cracking-the-coding-interview
 Solutions to book exercises from "Cracking the Coding Interview" by Gayle Laakmann McDowell 
 
