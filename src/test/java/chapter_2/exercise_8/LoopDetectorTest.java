@@ -1,4 +1,4 @@
-package chapter_2;
+package chapter_2.exercise_8;
 
 import chapter_2.exercise_8.LoopDetector;
 import common.Node;
