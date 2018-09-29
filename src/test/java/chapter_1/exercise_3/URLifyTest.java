@@ -3,6 +3,7 @@ package chapter_1.exercise_3;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class URLifyTest {
@@ -23,6 +24,6 @@ public class URLifyTest {
 
     @Test
     public void emptyStringOnUrlifyingEmptyString() {
-        System.out.println(urlify.toUrl("", 0));
+        assertEquals("", urlify.toUrl("", 0));
     }
 }

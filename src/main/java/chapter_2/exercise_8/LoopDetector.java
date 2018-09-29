@@ -2,10 +2,10 @@ package chapter_2.exercise_8;
 
 import common.Node;
 
-public class LoopDetector {
+class LoopDetector {
 
     //O(n) time complexity
-    public Node getLoopBeginning(Node head) {
+    Node getLoopBeginning(Node head) {
         Node slow = head;
         Node fast = head;
 
@@ -21,8 +21,6 @@ public class LoopDetector {
 
         slow = head;
         while (slow != fast) {
-            System.out.println(slow.data);
-            System.out.println(fast.data);
             slow = slow.next;
             fast = fast.next;
         }
