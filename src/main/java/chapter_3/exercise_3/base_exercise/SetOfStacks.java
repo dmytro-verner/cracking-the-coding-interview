@@ -1,4 +1,4 @@
-package chapter_3.exercise_3;
+package chapter_3.exercise_3.base_exercise;
 
 import chapter_3.exception.EmptyStackException;
 

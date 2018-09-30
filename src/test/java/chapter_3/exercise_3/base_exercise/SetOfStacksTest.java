@@ -1,4 +1,4 @@
-package chapter_3.exercise_3;
+package chapter_3.exercise_3.base_exercise;
 
 import chapter_3.exception.EmptyStackException;
 import org.junit.Before;
@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Stack;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class SetOfStacksTest {
 
@@ -120,6 +119,6 @@ public class SetOfStacksTest {
         List<Stack<Integer>> stacks = fullSetOfStacks.getStacks();
         stacks.get(1).pop();
 
-        assertTrue(fullSetOfStacks.getStacks().get(1).peek() == 4);
+        assertEquals(4, fullSetOfStacks.getStacks().get(1).peek().intValue());
     }
 }
