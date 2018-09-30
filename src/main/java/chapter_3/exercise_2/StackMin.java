@@ -46,3 +46,5 @@ class StackMin<T extends Comparable> {
         return top == null;
     }
 }
+
+//The drawback is having to store integer in every node
